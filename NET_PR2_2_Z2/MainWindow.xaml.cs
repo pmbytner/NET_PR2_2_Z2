@@ -21,6 +21,7 @@ public partial class MainWindow : Window
 {
 	public MainWindow()
 	{
+		DataContext = new Osoba() { Imię = "Neo" };
 		InitializeComponent();
 	}
 }
