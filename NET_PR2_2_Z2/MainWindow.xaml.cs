@@ -21,7 +21,12 @@ public partial class MainWindow : Window
 {
 	public MainWindow()
 	{
-		DataContext = new Osoba() { Imię = "Neo" };
+		DataContext = new Osoba() {
+			Imię = "Neo",
+			Nazwisko = "Reevs",
+			DataUrodzenia = DateTime.Parse("01.01.2001"),
+			DataŚmierci = DateTime.Now
+		};
 		InitializeComponent();
 	}
 }

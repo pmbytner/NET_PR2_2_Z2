@@ -10,4 +10,8 @@ internal class Osoba
 	public string Imię { get; set; }
 	public string Nazwisko { get; set; }
 	public string ImięNazwisko => $"{Imię} {Nazwisko}";
+
+	public DateTime? DataUrodzenia { get; set; }
+	public DateTime? DataŚmierci { get; set; }
+	public string Wiek => "not implemented";
 }
