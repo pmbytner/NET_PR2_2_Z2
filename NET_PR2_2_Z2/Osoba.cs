@@ -74,26 +74,34 @@ internal class Osoba : INotifyPropertyChanged
 
 	public event PropertyChangedEventHandler? PropertyChanged;
 	private void NotyfikujZmianęWłaściwości(
-		[CallerMemberName] string nazwaWłaściwości = ""
+		[CallerMemberName] string nazwaWłaściwości = "",
+		HashSet<string> jużZrobione = null
 		)
 	{
+		if (jużZrobione == null)
+			jużZrobione = new();
+
 		PropertyChanged?.Invoke(
 			this,
 			new PropertyChangedEventArgs(nazwaWłaściwości)
 			);
-		if(PowiązaneWłaściwości.ContainsKey(nazwaWłaściwości))
-			foreach(string powiązanaWłaściwość in PowiązaneWłaściwości[nazwaWłaściwości])
-				PropertyChanged?.Invoke(
-					this,
-					new PropertyChangedEventArgs(powiązanaWłaściwość)
-					);
+		jużZrobione.Add(nazwaWłaściwości);
+
+		if (PowiązaneWłaściwości.ContainsKey(nazwaWłaściwości))
+			foreach (string powiązanaWłaściwość in PowiązaneWłaściwości[nazwaWłaściwości])
+				if (jużZrobione.Contains(powiązanaWłaściwość))
+					continue;
+				else
+					NotyfikujZmianęWłaściwości(powiązanaWłaściwość, jużZrobione);
 	}
 	private readonly static IDictionary<string, IEnumerable<string>>
 		PowiązaneWłaściwości = new Dictionary<string, IEnumerable<string>>()
 		{
-			["Imię"] = new string[] { "ImięNazwisko", "Info" },
-			["Nazwisko"] = new string[] { "ImięNazwisko", "Info" },
-			["DataUrodzenia"] = new string[] { "Wiek", "Info" },
-			["DataŚmierci"] = new string[] { "Wiek", "Info" },
+			["Imię"] = new string[] { "ImięNazwisko"},
+			["Nazwisko"] = new string[] { "ImięNazwisko"},
+			["DataUrodzenia"] = new string[] { "Wiek"},
+			["DataŚmierci"] = new string[] { "Wiek"},
+			["ImięNazwisko"] = new string[] { "Info"},
+			["Wiek"] = new string[] { "Info" },
 		};
 }
