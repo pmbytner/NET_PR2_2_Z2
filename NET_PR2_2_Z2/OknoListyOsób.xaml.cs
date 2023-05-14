@@ -19,21 +19,7 @@ namespace NET_PR2_2_Z2;
 /// </summary>
 public partial class OknoListyOsób : Window
 {
-	private ObservableCollection<Osoba> KolekcjaOsób = new()
-	{
-		new Osoba() {
-			Imię = "Neo",
-			Nazwisko = "Reevs",
-			DataUrodzenia = DateTime.Parse("01.01.2001"),
-			DataŚmierci = DateTime.Now
-		},
-		new Osoba() {
-			Imię = "Nemo",
-			Nazwisko = "Kapitan",
-			DataUrodzenia = DateTime.Parse("01.01.1880"),
-			DataŚmierci = DateTime.Now
-		}
-	};
+	private ObservableCollection<Osoba> KolekcjaOsób = new();
 	//ListBox ListaOsób;
 	public OknoListyOsób()
 	{
