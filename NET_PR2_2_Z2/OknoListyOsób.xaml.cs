@@ -34,9 +34,33 @@ public partial class OknoListyOsób : Window
 			DataŚmierci = DateTime.Now
 		}
 	};
+	//ListBox ListaOsób;
 	public OknoListyOsób()
 	{
 		DataContext = KolekcjaOsób;
 		InitializeComponent();
+	}
+
+	private void Edycja(object sender, RoutedEventArgs e)
+	{
+		new OknoSzczegółów(
+			(Osoba)ListaOsób.SelectedItem
+			).Show();
+	}
+
+	private void Dodaj(object sender, RoutedEventArgs e)
+	{
+		Osoba nowa = new Osoba();
+		KolekcjaOsób.Add(nowa);
+		new OknoSzczegółów(
+			nowa
+			).Show();
+	}
+
+	private void Usuń(object sender, RoutedEventArgs e)
+	{
+		KolekcjaOsób.Remove(
+			(Osoba)ListaOsób.SelectedItem
+			);
 	}
 }

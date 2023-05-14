@@ -19,14 +19,9 @@ namespace NET_PR2_2_Z2;
 /// </summary>
 public partial class OknoSzczegółów : Window
 {
-	public OknoSzczegółów()
+	public OknoSzczegółów(Osoba osoba)
 	{
-		DataContext = new Osoba() {
-			Imię = "Neo",
-			Nazwisko = "Reevs",
-			DataUrodzenia = DateTime.Parse("01.01.2001"),
-			DataŚmierci = DateTime.Now
-		};
+		DataContext = osoba;
 		InitializeComponent();
 	}
 }

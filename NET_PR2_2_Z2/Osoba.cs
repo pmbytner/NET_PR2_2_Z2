@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace NET_PR2_2_Z2;
-internal class Osoba : INotifyPropertyChanged
+public class Osoba : INotifyPropertyChanged
 {
 	private string imię;
 	private string nazwisko;
