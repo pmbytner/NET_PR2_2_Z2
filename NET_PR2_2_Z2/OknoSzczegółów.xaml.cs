@@ -17,9 +17,9 @@ namespace NET_PR2_2_Z2;
 /// <summary>
 /// Interaction logic for MainWindow.xaml
 /// </summary>
-public partial class MainWindow : Window
+public partial class OknoSzczegółów : Window
 {
-	public MainWindow()
+	public OknoSzczegółów()
 	{
 		DataContext = new Osoba() {
 			Imię = "Neo",

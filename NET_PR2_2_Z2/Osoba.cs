@@ -97,11 +97,11 @@ internal class Osoba : INotifyPropertyChanged
 	private readonly static IDictionary<string, IEnumerable<string>>
 		PowiązaneWłaściwości = new Dictionary<string, IEnumerable<string>>()
 		{
-			["Imię"] = new string[] { "ImięNazwisko"},
-			["Nazwisko"] = new string[] { "ImięNazwisko"},
-			["DataUrodzenia"] = new string[] { "Wiek"},
-			["DataŚmierci"] = new string[] { "Wiek"},
-			["ImięNazwisko"] = new string[] { "Info"},
+			["Imię"] = new string[] { "ImięNazwisko" },
+			["Nazwisko"] = new string[] { "ImięNazwisko" },
+			["DataUrodzenia"] = new string[] { "Wiek" },
+			["DataŚmierci"] = new string[] { "Wiek" },
+			["ImięNazwisko"] = new string[] { "Info" },
 			["Wiek"] = new string[] { "Info" },
 		};
 }
